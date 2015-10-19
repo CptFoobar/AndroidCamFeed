@@ -19,3 +19,8 @@ Simply replace the IP and the port with the one for your device.
 ### Requisites
 
 This module works with [IP Webcam](https://play.google.com/store/apps/details?id=com.pas.webcam) android application.
+
+_____
+
+Code adopted from [this stackoverflow question](http://stackoverflow.com/questions/21702477/how-to-parse-mjpeg-http-stream-from-ip-camera)
+ and [this Gist](https://gist.github.com/shihyuan/4d834d429763e953a40c).
