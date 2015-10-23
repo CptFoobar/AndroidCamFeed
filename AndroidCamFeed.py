@@ -15,9 +15,9 @@ class AndroidCamFeed:
     __loadCode = cv2.IMREAD_COLOR if sys.version_info[0] > 2 \
                                     else cv2.CV_LOAD_IMAGE_COLOR
     def __init__(self, host):
-        hoststr = 'http://' + host + '/video'
+        self.hoststr = 'http://' + host + '/video'
         try:
-            AndroidCamFeed.__stream = urllib2.urlopen(hoststr, timeout = 3)
+            AndroidCamFeed.__stream = urllib2.urlopen(self.hoststr, timeout = 3)
             AndroidCamFeed.__isOpen = True
         except (SocketError, urllib2.URLError) as err:
             print "Failed to connect to stream. \nError: " + str(err)
@@ -51,7 +51,7 @@ class AndroidCamFeed:
         if AndroidCamFeed.__noStreamCount > 10:
             try:
                 AndroidCamFeed.__stream = urllib2.urlopen(
-                                            AndroidCamFeed.hoststr, timeout = 3)
+                                            self.hoststr, timeout = 3)
             except (SocketError, urllib2.URLError) as err:
                 print "Failed to connect to stream: Error: " + str(err)
                 self.__close()
