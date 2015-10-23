@@ -5,7 +5,7 @@ from AndroidCamFeed import AndroidCamFeed
 
 def main():
     if not sys.argv[1] or len(sys.argv) > 2:
-        print "Usage: \n\tpython acf.py <host>:<port>"
+        print "Usage: \n\tpython Example.py <host>:<port>"
         return
 
     ## Set host
@@ -18,8 +18,8 @@ def main():
     ## While camera is open
     while acf.isOpened():
         ## Read frame
-        frame = acf.read()
-        if frame is not None:
+        ret, frame = acf.read()
+        if ret:
             cv2.imshow('feed', frame)
         if cv2.waitKey(1) == ord('q'):
             break

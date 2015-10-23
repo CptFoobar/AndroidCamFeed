@@ -60,7 +60,10 @@ class AndroidCamFeed:
         return AndroidCamFeed.__isOpen
 
     def read(self):
-        return AndroidCamFeed.__feed
+        if AndroidCamFeed.__feed is not None:
+            return True, AndroidCamFeed.__feed
+        else:
+            return False, None
 
     def release(self):
         self.__close()
